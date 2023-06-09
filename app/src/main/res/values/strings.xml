@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Triple Triad List</string>
+    <string name="imageVG">Cover</string>
+    <string name="titleVG">Title</string>
+    <string name="description">Genre:</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="trailer">Trailer</string>
+    <string name="synopsis">Synopsis:</string>
+    <string name="genredesc">Genre</string>
+    <string name="yearMovie">1990</string>
+    <string name="descriptionText">Description:</string>
+</resources>
