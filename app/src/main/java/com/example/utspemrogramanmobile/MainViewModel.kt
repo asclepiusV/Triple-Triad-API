@@ -1,0 +1,43 @@
+package com.example.utspemrogramanmobile
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import retrofit2.Call
+import retrofit2.Response
+
+class MainViewModel ( private val repository: Repository
+                      = Repository(ApiClient.apiService) ) : ViewModel() {
+    // The internal MutableLiveData that stores the status of the most recent request
+    //variabel yang merupakan mutable LiveData yang menyimpan status permintaan terbaru.
+    private val _tripleTriadLiveData = MutableLiveData< ScreenState<List<TripleTriadData>?> > ()
+
+    // The external immutable LiveData for the request status
+    // variabel yang merupakan LiveData tidak dapat diubah untuk status permintaan.
+    val tripleTriadLiveData : LiveData< ScreenState<List<TripleTriadData>?> > get() = _tripleTriadLiveData
+
+    init {
+        getTripleTriad()
+    }
+
+    private fun getTripleTriad(){
+        val client = repository.getDatas()
+        _tripleTriadLiveData.postValue(ScreenState.Loading(null))
+
+        client.enqueue(object : retrofit2.Callback<DataApiResponse> {
+            override fun onResponse(
+                call: Call<DataApiResponse>,
+                response: Response<DataApiResponse>
+            ) {
+                if (response.isSuccessful) {
+                    _tripleTriadLiveData.postValue(ScreenState.Success(response.body()?.result))
+                } else {
+                    _tripleTriadLiveData.postValue(ScreenState.Error(response.code().toString(), null))
+                }
+            }
+            override fun onFailure(call: Call<DataApiResponse>, t: Throwable) {
+                _tripleTriadLiveData.postValue(ScreenState.Error(t.message.toString(), null))
+            }
+        })
+    }
+}
