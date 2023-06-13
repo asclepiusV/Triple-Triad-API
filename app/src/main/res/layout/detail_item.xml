@@ -40,6 +40,7 @@
                 android:textAlignment="center"
                 android:textSize="22dp"
                 android:textStyle="bold"
+                android:textColor="@color/teal_700"
                 app:layout_constraintEnd_toEndOf="@id/imageTriad"
                 app:layout_constraintStart_toStartOf="@id/imageTriad"
                 app:layout_constraintTop_toBottomOf="@id/imageTriad" />
@@ -60,6 +61,7 @@
                     android:paddingEnd="10dp"
                     android:text="Patch:"
                     android:textSize="16dp"
+                    android:textColor="@color/teal_700"
                     android:textStyle="bold" />
 
                 <TextView
@@ -85,6 +87,7 @@
                     android:paddingEnd="10dp"
                     android:text="Owned:"
                     android:textSize="16dp"
+                    android:textColor="@color/teal_700"
                     android:textStyle="bold" />
 
                 <TextView
@@ -109,6 +112,7 @@
                     android:paddingEnd="10dp"
                     android:text="Description:"
                     android:textSize="16dp"
+                    android:textColor="@color/teal_700"
                     android:textStyle="bold" />
 
                 <TextView

@@ -8,11 +8,9 @@ import retrofit2.Response
 
 class MainViewModel ( private val repository: Repository
                       = Repository(ApiClient.apiService) ) : ViewModel() {
-    // The internal MutableLiveData that stores the status of the most recent request
     //variabel yang merupakan mutable LiveData yang menyimpan status permintaan terbaru.
     private val _tripleTriadLiveData = MutableLiveData< ScreenState<List<TripleTriadData>?> > ()
 
-    // The external immutable LiveData for the request status
     // variabel yang merupakan LiveData tidak dapat diubah untuk status permintaan.
     val tripleTriadLiveData : LiveData< ScreenState<List<TripleTriadData>?> > get() = _tripleTriadLiveData
 

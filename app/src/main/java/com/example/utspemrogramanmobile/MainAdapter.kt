@@ -1,11 +1,8 @@
 package com.example.utspemrogramanmobile
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
 import androidx.recyclerview.widget.RecyclerView
-
 
 class MainAdapter(val tripleTriadList: List<TripleTriadData>) : RecyclerView.Adapter<MainViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
